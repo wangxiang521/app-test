@@ -1,0 +1,84 @@
+/*date:2017-7-21*/
+html{
+    font-size:11.71875px;
+}
+body{
+    font-size:0.5973333333333334rem;
+}
+#rule-wx .left{
+    float:left;
+}
+#rule-wx .right{
+    float:right;
+}
+#rule-wx *{
+    box-sizing: border-box;
+}
+#rule-wx{
+    width:16rem;
+    margin:auto;
+    background: #fff;
+}
+body{
+    font-size:0.5973333333333334rem;
+}
+#rule-wx{
+    width:16rem;
+}
+#rule-wx header{
+    width:100%;
+    height:1.8773333333333333rem;
+    line-height:1.8773333333333333rem;
+    text-align: center;
+    position: relative;
+    color:#222;
+    font-size:0.7253333333333334rem;
+    background: #FFFFFF;
+    box-shadow: 0 0.042666666666666665rem 0.042666666666666665rem 0 #E3E3E3;
+}
+#rule-wx header .back{
+    position: absolute;
+    top:0.5546666666666666rem;
+    left:0.512rem;
+    width:0.4266666666666667rem;
+    height:0.768rem;
+    background:url(../img/back.png) no-repeat ;
+    background-size: 100% 100%;
+}
+#rule-wx .title{
+    height:2.176rem;
+    text-align: center;
+    font-size: 0.768rem;
+    color: #222222;
+    letter-spacing: 0;
+    line-height: 2.176rem;
+}
+.rule-content{
+    font-size: 0.64rem;
+    color: #101010;
+    letter-spacing: 0;
+    line-height: 0.8106666666666666rem;
+    width:14.933333333333334rem;
+    margin:auto;
+}
+.rule-content h1{
+    text-align: center;
+    font-weight: bold;
+    font-size:0.7253333333333334rem;
+}
+table{
+    width:100%;
+    border:1px solid #ddd;
+    border-collapse: collapse;
+    font-size:0.512rem;
+    margin-top:0.4266666666666667rem;
+    margin-bottom:0.4266666666666667rem
+}
+td,th{
+    border:0.042666666666666665rem solid #ddd;
+    text-align: center;
+}
+.last{
+    margin-bottom: 5.12rem;
+}
+

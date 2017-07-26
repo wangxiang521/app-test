@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"content="initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=no,minimal-ui"/>
+    <!-- 苹果用户的属性 -->
+    <meta name="apple-mobile-web-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>活动页3</title>
+    <script>
+        !function(win) {
+            function resize() {
+                var domWidth = domEle.getBoundingClientRect().width;
+                if(domWidth / v > 540){
+                    domWidth = 540 * v;
+                }
+                win.rem = domWidth / 16;
+                domEle.style.fontSize = win.rem + "px";
+            }
+            var v, initial_scale, timeCode, dom = win.document, domEle = dom.documentElement, viewport = dom.querySelector('meta[name="viewport"]'), flexible = dom.querySelector('meta[name="flexible"]');
+            if (viewport) {
+                //viewport：<meta name="viewport"content="initial-scale=0.5, minimum-scale=0.5, maximum-scale=0.5,user-scalable=no,minimal-ui"/>
+                var o = viewport.getAttribute("content").match(/initial\-scale=(["']?)([\d\.]+)\1?/);
+                if(o){
+                    initial_scale = parseFloat(o[2]);
+                    v = parseInt(1 / initial_scale);
+                }
+            } else {
+                if (flexible) {
+                    var o = flexible.getAttribute("content").match(/initial\-dpr=(["']?)([\d\.]+)\1?/);
+                    if(o){
+                        v = parseFloat(o[2]);
+                        initial_scale = parseFloat((1 / v).toFixed(2))
+                    }
+                }
+            }
+            if (!v && !initial_scale) {
+                var n = (win.navigator.appVersion.match(/android/gi), win.navigator.appVersion.match(/iphone/gi));
+                v = win.devicePixelRatio;
+                v = n ? v >= 3 ? 3 : v >= 2 ? 2 : 1 : 1, initial_scale = 1 / v
+            }
+            //没有viewport标签的情况下
+            if (domEle.setAttribute("data-dpr", v), !viewport) {
+                if (viewport = dom.createElement("meta"), viewport.setAttribute("name", "viewport"), viewport.setAttribute("content", "initial-scale=" + initial_scale + ", maximum-scale=" + initial_scale + ", minimum-scale=" + initial_scale + ", user-scalable=no"), domEle.firstElementChild) {
+                    domEle.firstElementChild.appendChild(viewport)
+                } else {
+                    var m = dom.createElement("div");
+                    m.appendChild(viewport), dom.write(m.innerHTML)
+                }
+            }
+            win.dpr = v;
+            win.addEventListener("resize", function() {
+                clearTimeout(timeCode), timeCode = setTimeout(resize, 300)
+            }, false);
+            win.addEventListener("pageshow", function(b) {
+                b.persisted && (clearTimeout(timeCode), timeCode = setTimeout(resize, 300))
+            }, false);
+            /* 个人觉得没必要完成后就把body的字体设置为12
+             "complete" === dom.readyState ? dom.body.style.fontSize = 12 * v + "px" : dom.addEventListener("DOMContentLoaded", function() {
+             //dom.body.style.fontSize = 12 * v + "px"
+             }, false);
+             */
+            resize();
+        }(window);
+    </script>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/rule.css">
+</head>
+<body>
+    <div id="rule-wx">
+        <div class="title">
+            百万现金,整点开抢
+        </div>
+        <div class="rule-content">
+            <h1>活动细则：</h1>
+            <div>
+                1. 本次活动所有零用贷注册用户均可参与；
+            </div>
+            <div>
+                2. 抢的券，每天10:00、20:00准时开抢，领的券每天限量领取，领完为止；
+            </div>
+            <div>
+                3. 现金抵用券请至【我的账户】-【我的优惠券】中查看，现金抵用券有效期为：自领取之后，次日24时内有效，逾期自动失效；
+            </div>
+            <div>
+                4. 本次活动现金抵用券仅限本人投资使用，现金抵用券金额使用及领取规则：
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>现金抵用券金额</th>
+                        <th>使用限制</th>
+                        <th>备注</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>100元</td>
+                    <td>
+                        一月及以上标的
+                        <br>
+                        满8000元使用
+                    </td>
+                    <td>
+                        每日每个用户限领1张
+                    </td>
+                </tr>
+                <tr>
+                    <td>200元</td>
+                    <td>
+                        一月及以上标的
+                        <br>
+                        满10000元使用
+                    </td>
+                    <td>
+                        每日每个用户限领1张
+                    </td>
+                </tr>
+                <tr>
+                    <td>10元</td>
+                    <td>
+                        一月及以上标的
+                        <br>
+                        满1000元使用
+                    </td>
+                    <td>
+                        每日每个用户限领5张
+                    </td>
+                </tr>
+                <tr>
+                    <td>300元</td>
+                    <td>
+                        三月及以上标的
+                        <br>
+                        满10000元使用
+                    </td>
+                    <td>
+                        每日每个用户限领5张
+                    </td>
+                </tr>
+                <tr>
+                    <td>800元</td>
+                    <td>
+                        三月及以上标的
+                        <br>
+                        满50000元使用
+                    </td>
+                    <td>
+                        每日每个用户限领5张
+                    </td>
+                </tr>
+                <tr>
+                    <td>1800元</td>
+                    <td>
+                       三月及以上标的
+                        <br>
+                        满100000元使用
+                    </td>
+                    <td>
+                        每日每个用户限领5张
+                    </td>
+                </tr>
+                <tr>
+                    <td>1800元</td>
+                    <td>
+                        一月及以上标的
+                        <br>
+                        满50000元使用
+                    </td>
+                    <td>
+                        每日每个用户限领5张
+                    </td>
+                </tr>
+                <tr>
+                    <td>3800元</td>
+                    <td>
+                        一月及以上标的
+                        <br>
+                        满10000元使用
+                    </td>
+                    <td>
+                        每日每个用户限领5张
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+            <div>
+                5. 若发现采用特殊手段刷奖或盗用他人身份证、银行信息等行为，一经核实，零用贷将取消其活动资格，所得奖励不予承兑；
+
+            </div>
+            <div>
+                6. 活动期间产生的任何提现费用及手续费用由用户自理；
+
+            </div>
+            <div class="last">
+                7. 本次活动最终解释权归零用贷所有。如有疑问请拨打零用贷全国服务热线：400-860-8858 。或咨询零用贷QQ理财群：469640251。
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"content="initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=no,minimal-ui"/>
+    <!-- 苹果用户的属性 -->
+    <meta name="apple-mobile-web-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>活动页1</title>
+    <script>
+        !function(win) {
+            function resize() {
+                var domWidth = domEle.getBoundingClientRect().width;
+                if(domWidth / v > 540){
+                    domWidth = 540 * v;
+                }
+                win.rem = domWidth / 16;
+                domEle.style.fontSize = win.rem + "px";
+            }
+            var v, initial_scale, timeCode, dom = win.document, domEle = dom.documentElement, viewport = dom.querySelector('meta[name="viewport"]'), flexible = dom.querySelector('meta[name="flexible"]');
+            if (viewport) {
+                //viewport：<meta name="viewport"content="initial-scale=0.5, minimum-scale=0.5, maximum-scale=0.5,user-scalable=no,minimal-ui"/>
+                var o = viewport.getAttribute("content").match(/initial\-scale=(["']?)([\d\.]+)\1?/);
+                if(o){
+                    initial_scale = parseFloat(o[2]);
+                    v = parseInt(1 / initial_scale);
+                }
+            } else {
+                if (flexible) {
+                    var o = flexible.getAttribute("content").match(/initial\-dpr=(["']?)([\d\.]+)\1?/);
+                    if(o){
+                        v = parseFloat(o[2]);
+                        initial_scale = parseFloat((1 / v).toFixed(2))
+                    }
+                }
+            }
+            if (!v && !initial_scale) {
+                var n = (win.navigator.appVersion.match(/android/gi), win.navigator.appVersion.match(/iphone/gi));
+                v = win.devicePixelRatio;
+                v = n ? v >= 3 ? 3 : v >= 2 ? 2 : 1 : 1, initial_scale = 1 / v
+            }
+            //没有viewport标签的情况下
+            if (domEle.setAttribute("data-dpr", v), !viewport) {
+                if (viewport = dom.createElement("meta"), viewport.setAttribute("name", "viewport"), viewport.setAttribute("content", "initial-scale=" + initial_scale + ", maximum-scale=" + initial_scale + ", minimum-scale=" + initial_scale + ", user-scalable=no"), domEle.firstElementChild) {
+                    domEle.firstElementChild.appendChild(viewport)
+                } else {
+                    var m = dom.createElement("div");
+                    m.appendChild(viewport), dom.write(m.innerHTML)
+                }
+            }
+            win.dpr = v;
+            win.addEventListener("resize", function() {
+                clearTimeout(timeCode), timeCode = setTimeout(resize, 300)
+            }, false);
+            win.addEventListener("pageshow", function(b) {
+                b.persisted && (clearTimeout(timeCode), timeCode = setTimeout(resize, 300))
+            }, false);
+            /* 个人觉得没必要完成后就把body的字体设置为12
+             "complete" === dom.readyState ? dom.body.style.fontSize = 12 * v + "px" : dom.addEventListener("DOMContentLoaded", function() {
+             //dom.body.style.fontSize = 12 * v + "px"
+             }, false);
+             */
+            resize();
+        }(window);
+    </script>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div id="active-wx">
+        <header>
+            <div>百万现金 整点开枪</div>
+            <b class="back"></b>
+        </header>
+        <div class="top-img"></div>
+        <div class="content-top-wx">
+            <span class="qiang">
+            抢
+            </span>
+            <span class="cjq-wx">
+                超值券
+            </span>
+            <div class="right off-set-wx">
+                <b class="ld-img"></b>
+                <span>关闭提醒</span>
+                <div class="btn"></div>
+            </div>
+        </div>
+        <div class="title-wx">
+            <span>10:00, 20:00开抢（每次开放1小时）</span>
+        </div>
+        <div class="active-wx">
+            <div class="left one-hundred-left">
+                <div>
+                    <div class="money-wx-parent">
+                        <span class="money-wx">￥</span><span class="number">10</span>
+                    </div>
+                    <div class="quan-name-wx">现金抵用券</div>
+                    <div>投资1个月及以上标的</div>
+                    <div>满1000元使用</div>
+                </div>
+            </div>
+            <div class="right cz-wx"onclick="cli(this)">
+                <div>
+
+                </div>
+            </div>
+        </div>
+        <div class="active-wx">
+            <div class="left one-hundred-left" >
+                <div>
+                        <div class="money-wx-parent"> <span class="money-wx">￥</span><span class="number">100</span></div>
+
+                    <div class="quan-name-wx">现金抵用券</div>
+                    <div>投资1个月及以上标的</div>
+                    <div>满8000元使用</div>
+                </div>
+            </div>
+            <div class="right cz-wx" onclick="cli(this)">
+                <div>
+                </div>
+            </div>
+        </div>
+        <div class="active-wx">
+            <div class="left one-hundred-left">
+                <div>
+                    <div class="money-wx-parent"><span class="money-wx">￥</span><span class="number">200</span></div>
+                    <div class="quan-name-wx">现金抵用券</div>
+                    <div>投资1个月及以上标的</div>
+                    <div>满10000元使用</div>
+                </div>
+            </div>
+            <div class="right cz-wx" onclick="cli(this)">
+                <div>
+
+                </div>
+            </div>
+        </div>
+        <div class="active-wx">
+            <div class="left two-hundred-left">
+                <div>
+                    <div class="money-wx-parent"> <span class="money-wx">￥</span><span class="number">300</span></div>
+
+                    <div class="quan-name-wx">现金抵用券</div>
+                    <div>投资3个月及以上标的</div>
+                    <div>满10000元使用</div>
+                </div>
+            </div>
+            <div class="right cz-wx onclick="cli(this)"">
+                <div >
+
+                </div>
+            </div>
+        </div>
+        <div class="content-top-wx">
+            <span class="qiang ling">领</span>
+            <span class="cjq-wx csq-wx">超神券</span>
+        </div>
+        <div class="title-wx">
+            <span>回馈用户,限时开放，数量有限，先到先得</span>
+        </div>
+        <div class="active-wx">
+            <div class="left two-hundred-left">
+                <div>
+                    <div class="money-wx-parent"><span class="money-wx">￥</span><span class="number">800</span></div>
+
+                    <div class="quan-name-wx">现金抵用券</div>
+                    <div>投资3个月及以上标的</div>
+                    <div>满50000元使用</div>
+                </div>
+            </div>
+            <div class="right yellow" onclick="cli(this)">
+                <div >
+                    立即抢券
+                </div>
+            </div>
+        </div>
+        <div class="active-wx">
+            <div class="left two-hundred-left">
+                <div>
+                    <div class="money-wx-parent"> <span class="money-wx">￥</span><span class="number">1800</span></div>
+                    <div class="quan-name-wx">现金抵用券</div>
+                    <div>投资3个月及以上标的</div>
+                    <div>满100000元使用</div>
+                </div>
+            </div>
+            <div class="right yellow"onclick="cli(this)">
+                <div >
+                    立即抢券
+                </div>
+            </div>
+        </div>
+        <div class="active-wx">
+            <div class="left three-hundred-left">
+                <div>
+                    <div class="money-wx-parent"><span class="money-wx">￥</span><span class="number">1800</span></div>
+                    <div class="quan-name-wx">现金抵用券</div>
+                    <div>投资6个月及以上标的</div>
+                    <div>满50000元使用</div>
+                </div>
+            </div>
+            <div class="right yellow"onclick="cli(this)">
+                <div >
+                    立即抢券
+                </div>
+            </div>
+        </div>
+        <div class="active-wx">
+            <div class="left three-hundred-left">
+                <div>
+                    <div class="money-wx-parent"><span class="money-wx">￥</span><span class="number">3800</span></div>
+
+                    <div class="quan-name-wx">现金抵用券</div>
+                    <div>投资6个月及以上标的</div>
+                    <div>满100000元使用</div>
+                </div>
+            </div>
+            <div class="right yellow"onclick="cli(this)">
+                <div >
+                    立即抢券
+                </div>
+            </div>
+        </div>
+        <footer>
+            <a href="rule.html">活动规则</a>
+        </footer>
+        <div class="modal">
+            <div class="modal-content">
+                <div class="modal-txt">
+                    <h1>领券成功</h1>
+                    <div>
+                        恭喜！券已经放入您的账户中分享给
+                    </div>
+                    <div>
+                        朋友赚钱吧
+                    </div>
+                </div>
+                <div class="modal-down">
+                    <div class="btn-1">继续领券</div>
+                    <div class="btn-1">分享好友</div>
+                </div>
+            </div>
+
+            <div class="modal-close" onclick="closeModal()">&times;</div>
+        </div>
+    <div class="modal1">
+        <div class="modal-fail">
+            <div class="modal-txt">
+                <h1>领券失败</h1>
+                <div>
+                    领券失败:领券失败了!
+                </div>
+                <div>
+                    再继续尝试下吧
+                </div>
+            </div>
+            <div class="modal-down">
+                <div class="btn-2">继续领券</div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/index.js"></script>
+<script>
+    var now='00:00:02';
+    var arr=now.split(':');
+    var time=arr[0]*3600000+arr[1]*60000+arr[2]*1000
+    function GetRTime(t){
+        var h=0;
+        var m=0;
+        var s=0;
+        if(t>=0){
+            h=Math.floor(t/1000/60/60);
+            m=Math.floor(t/1000/60%60);
+            s=Math.floor(t/1000%60);
+        }
+        if(h>0){
+            $('.cz-wx').each(function(){
+                $(this).find('div').html(h+1+ "小时后<br>开抢")
+            })
+        }else if(m>0){
+            $('.cz-wx').each(function(){
+                $(this).find('div').html(m+1 + "分钟后<br>开抢")
+            })
+        }else{
+            $('.cz-wx').each(function(){
+                $(this).find('div').html(s + "秒后<br>开抢")
+            })
+        }
+    }
+    GetRTime(time)
+    var timer=setInterval(function(){
+        time-=1000;
+        GetRTime(time);
+        if(time==0){
+            $('.cz-wx').each(function(){
+                $(this).find('div').html('立即开抢')
+                $(this).addClass('yellow')
+            })
+            clearInterval(timer);
+        }
+    },1000)
+</script>
+</html>
